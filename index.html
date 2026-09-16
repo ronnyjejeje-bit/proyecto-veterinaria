@@ -5,28 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Veterinaria Patitas Felices</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #f4f4f9; 
+body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+            color: #333;
         }
-        header { 
-            background-color: #120897; 
-            color: white; 
-            text-align: center; 
-            padding: 1.5em 0; 
+        header {
+            background-color: #120897;
+            color: white;
+            text-align: center;
+            padding: 2.5em 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        main { 
-            padding: 20px; 
-            text-align: center; 
-            min-height: 60vh;
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 1px;
         }
-        footer { 
-            background-color: #333; 
-            color: white; 
-            text-align: center; 
-            padding: 10px 0; 
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 1.1em;
+            font-style: italic;
+            opacity: 0.9;
+        }
+        main {
+            max-width: 700px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            text-align: center;
+            min-height: 40vh;
+        }
+        main h2 {
+            color: #120897;
+            margin-bottom: 25px;
+        }
+        /* Estilos bonitos para los servicios de Axel */
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        li {
+            background-color: #e8eaf6;
+            color: #120897;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+        li:hover {
+            transform: scale(1.05);
+            background-color: #c5cae9;
+        }
+        /* Estilos para tus horarios */
+        main p {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.6;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto;
         }
     </style>
 </head>
@@ -40,12 +91,11 @@
     <main>
         <h2>Bienvenidos a nuestra clínica</h2>
         <p>Sitio web en construcción por Ronny y Axel.</p>
-        <!-- Aquí Axel puede agregar servicios luego -->
+
         <p>Lunes a Viernes: 8am - 6pm</p>
 
         <ul><li>Vacunas</li><li>Peluquería</li></ul>
-        <!-- Aquí Ronny puede agregar horarios luego -->
-     
+
     </main>
 
     <footer>
