@@ -92,6 +92,52 @@
             transform: scale(1.1);
             background-color: #128C7E;
             color: white;
+                  }
+        .footer-premium {
+            background-color: #1a252f;
+            color: #ecf0f1;
+            padding: 60px 20px 20px;
+            margin-top: 40px;
+        }
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-col h3 {
+            color: #ff4081;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+        .footer-col p {
+            line-height: 1.6;
+            color: #bdc3c7;
+            font-size: 0.95rem;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+        .footer-col ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .footer-col ul li a:hover {
+            color: #00c853;
+            padding-left: 8px; /* Animación de movimiento */
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #34495e;
+            color: #7f8c8d;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -195,11 +241,41 @@
         </div>
     </section>
 
-    <!-- Pie de Página -->
-    <footer>
-        <p>&copy; 2026 Clínica Veterinaria Patitas Felices. Sistema desarrollado colaborativamente usando Git.</p>
+    <!-- Pie de Página Premium -->
+    <footer class="footer-premium">
+        <div class="footer-container">
+            <!-- Columna 1 -->
+            <div class="footer-col">
+                <h3>🐾 Patitas Felices</h3>
+                <p>Cuidamos a tu engreído con el amor y profesionalismo que merece. Más de 10 años de experiencia brindando salud y felicidad a las mascotas de Lima.</p>
+            </div>
+            
+            <!-- Columna 2 -->
+            <div class="footer-col">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#inicio">Volver al Inicio</a></li>
+                    <li><a href="#servicios">Nuestros Servicios</a></li>
+                    <li><a href="#promociones">Promociones del Mes</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#reservas">Agendar Cita</a></li>
+                </ul>
+            </div>
+            
+            <!-- Columna 3 -->
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <p>📍 Av. Las Mascotas 123, Lima Metropolitana</p>
+                <p>📞 +51 999 999 999</p>
+                <p>✉️ citas@patitasfelices.com</p>
+                <p>🕒 Lun - Sáb: 8:00 AM - 8:00 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Clínica Veterinaria Patitas Felices. Sistema desarrollado colaborativamente utilizando control de versiones Git.</p>
+        </div>
     </footer>
-
+    
     <script>
         function enviarWhatsApp(event) {
             event.preventDefault(); 
@@ -212,9 +288,10 @@
             window.open(urlWhatsApp, '_blank');
         }
     </script>
+
     <!-- Botón Flotante de WhatsApp -->
     <a href="https://wa.me/51999999999" class="btn-whatsapp-flotante" target="_blank">
-         Contactar por WhatsApp
+        📱 Contactar por WhatsApp
     </a>
 </body>
 </html>
