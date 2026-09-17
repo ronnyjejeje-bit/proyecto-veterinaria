@@ -3,162 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veterinaria Patitas Felices</title>
+    <title>Veterinaria Patitas Felices | Citas y Servicios</title>
     <style>
-        /* Reset básico para que se vea igual en todos los navegadores */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        html { scroll-behavior: smooth; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f4f7f6; color: #333; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            background-color: #120897; padding: 15px 50px; color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100;
         }
+        .logo { font-size: 1.5rem; font-weight: bold; }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        .nav-links a { color: white; text-decoration: none; font-weight: 500; transition: color 0.3s; cursor: pointer; }
+        .nav-links a:hover { color: #ff4081; }
+        
+        .btn-login {
+            background-color: #ff4081; color: white; border: none; padding: 10px 20px;
+            border-radius: 20px; font-weight: bold; cursor: pointer; transition: background 0.3s;
+        }
+        .btn-login:hover { background-color: #e03571; }
 
-       /* Encabezado Premium con imagen de fondo y filtro */
         header {
-            /* Ponemos una imagen de fondo de perritos con un filtro azul semitransparente encima */
-            background: linear-gradient(rgba(18, 8, 151, 0.8), rgba(44, 62, 80, 0.9)), 
-                        url('https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&w=1200&auto=format&fit=crop') center/cover fixed;
-            color: white;
-            padding: 5rem 1rem 7rem 1rem;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            border-bottom: 5px solid #ff4081; /* Una línea de acento rosada para darle vida */
+            background: linear-gradient(rgba(18, 8, 151, 0.7), rgba(44, 62, 80, 0.8)), 
+                        url('https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=1200&auto=format&fit=crop') center/cover;
+            height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; text-align: center; padding: 20px;
+        }
+        header h1 { font-size: 3.5rem; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        header p { font-size: 1.2rem; margin-bottom: 25px; max-width: 600px; }
+        .btn-reserva {
+            background-color: #00c853; color: white; padding: 15px 30px; text-decoration: none;
+            font-size: 1.2rem; border-radius: 30px; font-weight: bold; box-shadow: 0 4px 10px rgba(0,200,83,0.4);
         }
 
-        header h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem); 
-            margin-bottom: 15px;
-            font-weight: 800;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        .seccion { padding: 60px 20px; max-width: 1100px; margin: 0 auto; text-align: center; }
+        .seccion h2 { color: #120897; font-size: 2.5rem; margin-bottom: 40px; }
+        .grid-servicios { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        .card {
+            background: white; border-radius: 15px; overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s;
         }
+        .card:hover { transform: translateY(-10px); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-body { padding: 20px; }
+        .card-body h3 { color: #120897; margin-bottom: 10px; }
+        .card-body p { color: #666; font-size: 0.95rem; margin-bottom: 15px; line-height: 1.5; }
+        .card-body .precio { font-weight: bold; color: #ff4081; font-size: 1.2rem; }
 
-        header p {
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
-            font-style: italic;
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        .reserva-container {
+            background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 600px; margin: -40px auto 40px auto; position: relative; z-index: 10; text-align: left;
         }
-        /* Contenedor principal estilo Tarjeta Flotante */
-        main {
-            max-width: 900px;
-            width: 90%;
-            margin: -50px auto 40px auto; /* Sube el contenedor sobre el header */
-            background-color: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            position: relative; 
-            z-index: 10;
-            text-align: center;
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 5px; color: #120897; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem;
         }
-
-        .imagen-principal {
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .btn-submit {
+            width: 100%; background-color: #25D366; color: white; padding: 15px;
+            border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer;
         }
-
-        h2, h3 {
-            color: #120897;
-            margin-bottom: 20px;
-        }
-
-        .horarios {
-            background-color: #e8eaf6;
-            border-left: 5px solid #120897;
-            padding: 15px;
-            margin: 25px auto;
-            font-weight: 600;
-            color: #333;
-            border-radius: 0 8px 8px 0;
-            max-width: 500px;
-        }
-
-        /* Servicios estilo botones modernos */
-        ul {
-            list-style-type: none;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap; /* Permite que bajen de línea en celulares */
-        }
-
-        li {
-            background-color: #ffffff;
-            color: #120897;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: bold;
-            border: 2px solid #e8eaf6;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        li:hover {
-            transform: translateY(-5px);
-            background-color: #120897;
-            color: white;
-            box-shadow: 0 8px 15px rgba(18, 8, 151, 0.2);
-        }
-
-        footer {
-            text-align: center;
-            padding: 25px;
-            background-color: #2c3e50;
-            color: white;
-            margin-top: 50px;
-        }
-
-        /* RESPONSIVE: Ajustes para pantallas pequeñas (Celulares) */
-        @media (max-width: 600px) {
-            main {
-                padding: 20px;
-                margin-top: -30px;
-            }
-            li {
-                width: 100%; /* Los botones ocupan todo el ancho en celular */
-            }
-        }
+        .btn-submit:hover { background-color: #128C7E; }
+        
+        footer { background-color: #2c3e50; color: white; text-align: center; padding: 20px; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Veterinaria Patitas Felices 🐾</h1>
-        <p>Cuidando a tu mejor amigo con amor</p>
+    <nav>
+        <div class="logo">🐾 Patitas Felices</div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#reservas">Reservas</a></li>
+        </ul>
+        <button class="btn-login" onclick="alert('Función de login en desarrollo para la V2.')">Iniciar Sesión</button>
+    </nav>
+
+    <header id="inicio">
+        <h1>Gestión Integral para tu Mascota</h1>
+        <p>Reserva citas, revisa el historial de vacunas y accede a nuestros servicios premium desde un solo lugar.</p>
+        <a href="#reservas" class="btn-reserva">Agenda tu Cita Hoy</a>
     </header>
 
-    <main>
-        <!-- Imagen responsive -->
-        <img class="imagen-principal" src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?q=80&w=800&auto=format&fit=crop" alt="Perrito feliz en la veterinaria">
-        
-        <h2>Bienvenidos a nuestra clínica</h2>
-        <p>Sitio web desarrollado de forma colaborativa por Ronny y Axel.</p>
-        
-        <div class="horarios">
-            <p>🕒 Horario de atención: Lunes a Viernes de 8:00 am - 6:00 pm</p>
-        </div>
+    <div class="reserva-container" id="reservas">
+        <h2 style="text-align: center; color: #120897; margin-bottom: 20px;">Reserva vía WhatsApp</h2>
+        <form id="formReserva" onsubmit="enviarWhatsApp(event)">
+            <div class="form-group">
+                <label>Nombre del Dueño:</label>
+                <input type="text" id="nombreDueño" placeholder="Ej. Ronny..." required>
+            </div>
+            <div class="form-group">
+                <label>Servicio Requerido:</label>
+                <select id="servicioElegido" required>
+                    <option value="">Seleccione un servicio...</option>
+                    <option value="Vacunación Anual">Vacunación Anual</option>
+                    <option value="Peluquería y Baño">Peluquería y Baño</option>
+                    <option value="Consulta Médica General">Consulta Médica General</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Fecha de la cita:</label>
+                <input type="date" id="fechaCita" required>
+            </div>
+            <button type="submit" class="btn-submit">Confirmar Reserva</button>
+        </form>
+    </div>
 
-        <h3>Nuestros Servicios</h3>
-        <ul>
-            <li>💉 Vacunas</li>
-            <li>✂️ Peluquería</li>
-            <li>🏥 Consultas Médicas</li>
-        </ul>
-    </main>
+    <section class="seccion" id="servicios">
+        <h2>Catálogo de Servicios</h2>
+        <div class="grid-servicios">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?q=80&w=400&auto=format&fit=crop" alt="Vacunación">
+                <div class="card-body">
+                    <h3>Vacunación y Desparasitación</h3>
+                    <p>Protege a tu engreído contra las principales enfermedades con nuestro esquema de vacunación internacional.</p>
+                    <p class="precio">Desde S/ 45.00</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?q=80&w=400&auto=format&fit=crop" alt="Peluquería">
+                <div class="card-body">
+                    <h3>Peluquería Premium</h3>
+                    <p>Baño medicado, corte de uñas, limpieza de oídos y cortes de raza realizados por estilistas profesionales.</p>
+                    <p class="precio">Desde S/ 35.00</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?q=80&w=400&auto=format&fit=crop" alt="Consulta Médica">
+                <div class="card-body">
+                    <h3>Consulta Médica General</h3>
+                    <p>Atención integral con médicos veterinarios capacitados. Incluye chequeo general y triaje completo.</p>
+                    <p class="precio">Desde S/ 50.00</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2026 Clínica Veterinaria. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Clínica Veterinaria Patitas Felices. Sistema desarrollado colaborativamente usando Git.</p>
     </footer>
 
+    <script>
+        function enviarWhatsApp(event) {
+            event.preventDefault(); 
+            const nombre = document.getElementById("nombreDueño").value;
+            const servicio = document.getElementById("servicioElegido").value;
+            const fecha = document.getElementById("fechaCita").value;
+            const numeroTelefono = "51999999999"; 
+            const mensaje = `🐾 ¡Hola Patitas Felices! Soy ${nombre}. Quisiera reservar el servicio de *${servicio}* para la fecha *${fecha}*. ¿Tienen disponibilidad?`;
+            const urlWhatsApp = `https://wa.me/${numeroTelefono}?text=${encodeURIComponent(mensaje)}`;
+            window.open(urlWhatsApp, '_blank');
+        }
+    </script>
 </body>
 </html>
