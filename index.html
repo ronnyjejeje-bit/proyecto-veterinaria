@@ -68,6 +68,31 @@
         }
         .btn-submit:hover { background-color: #128C7E; }
         
+        footer { background-color: #2c3e50; color: white; text-align: center; padding: 20px; }
+        /* --- BOTÓN FLOTANTE WHATSAPP --- */
+        .btn-whatsapp-flotante {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-whatsapp-flotante:hover {
+            transform: scale(1.1);
+            background-color: #128C7E;
+            color: white;
+                  }
         .footer-premium {
             background-color: #1a252f;
             color: #ecf0f1;
@@ -201,10 +226,6 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-    </div>
-</section>
-=======
     </section>
 
     <!-- Sección de Testimonios -->
@@ -220,13 +241,8 @@
         </div>
     </section>
 
-    <!-- Pie de Página -->
-    <footer>
-        <p>&copy; 2026 Clínica Veterinaria Patitas Felices. Sistema desarrollado colaborativamente usando Git.</p>
-    </footer>
->>>>>>> 831579be3168127725e7a05daa3f353bb24d149a
-
-<footer class="footer-premium">
+    <!-- Pie de Página Premium -->
+    <footer class="footer-premium">
         <div class="footer-container">
             <!-- Columna 1 -->
             <div class="footer-col">
@@ -272,5 +288,10 @@
             window.open(urlWhatsApp, '_blank');
         }
     </script>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/51999999999" class="btn-whatsapp-flotante" target="_blank">
+        📱 Contactar por WhatsApp
+    </a>
 </body>
 </html>
